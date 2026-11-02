@@ -1,0 +1,76 @@
+.reserva-admin {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: var(--color-superficie, #ffffff);
+}
+
+.reserva-admin-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.reserva-admin-cabecera h3 {
+  margin: 0;
+}
+
+.reserva-admin-contenido p {
+  margin: 8px 0;
+}
+
+.estado-reserva {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.estado-reserva.pendiente {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+.estado-reserva.confirmado {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.estado-reserva.rechazado {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.total-admin {
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 1.1rem;
+}
+
+.acciones-reserva {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.boton.confirmar {
+  color: white;
+  background: #16a34a;
+}
+
+.boton.confirmar:hover {
+  background: #15803d;
+}
+
+.boton.rechazar {
+  color: white;
+  background: #dc2626;
+}
+
+.boton.rechazar:hover {
+  background: #b91c1c;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso administrativo | Asistente de viajes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div class="contenedor">
+      <h1>Acceso administrativo</h1>
+      <p>Inicia sesión para revisar las reservas y los pagos.</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="tarjeta">
+      <form id="formulario-login-admin">
+        <label for="usuario-admin">Usuario</label>
+        <input
+          id="usuario-admin"
+          name="username"
+          type="text"
+          autocomplete="username"
+          required
+        >
+
+        <label for="contrasena-admin">Contraseña</label>
+        <input
+          id="contrasena-admin"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button class="boton principal" type="submit">
+          Iniciar sesión
+        </button>
+      </form>
+      <p id="resultado-login-admin" class="resultado" role="status"></p>
+    </section>
+  </main>
+
+  <script src="/js/admin-login.js"></script>
+</body>
+</html>

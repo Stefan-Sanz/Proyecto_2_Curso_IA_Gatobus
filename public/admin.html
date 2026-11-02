@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel administrativo</title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div class="contenedor">
+      <h1>Panel administrativo</h1>
+      <p>Gestión de reservas y pagos.</p>
+      <button
+        id="cerrar-sesion-admin"
+        class="boton secundario"
+        type="button"
+      >
+        Cerrar sesión
+      </button>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <p class="demo-aviso" role="status">
+      Panel de demostración: revisa únicamente reservas, pagos y comprobantes
+      ficticios. No confirmes transacciones reales.
+    </p>
+    <section class="tarjeta">
+      <h2>Reservas registradas</h2>
+
+      <div id="estado-admin" class="estado">
+        Cargando reservas...
+      </div>
+
+      <div id="lista-reservas"></div>
+    </section>
+  </main>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

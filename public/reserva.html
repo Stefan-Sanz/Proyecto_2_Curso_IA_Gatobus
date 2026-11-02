@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva demostrativa | Asistente de viajes</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div class="contenedor">
+      <a class="enlace-encabezado" href="/">Volver al viaje</a>
+      <h1>Reserva demostrativa</h1>
+      <p>Selecciona tus asientos y opciones de hospedaje.</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <p class="demo-aviso" role="status">
+      Proyecto en desarrollo: las reservas y pagos son demostrativos. No
+      ingreses datos personales reales, no realices transferencias y utiliza
+      únicamente archivos de prueba.
+    </p>
+
+    <section id="estado-carga-reserva" class="estado">
+      Cargando información del viaje...
+    </section>
+
+    <section id="contenido-reserva" class="oculto">
+      <article class="tarjeta">
+        <h2 id="nombre-viaje-reserva"></h2>
+        <p id="resumen-viaje-reserva"></p>
+
+        <form id="formulario-reserva">
+          <h3>Elige tus asientos</h3>
+          <div
+            id="mapa-asientos-reserva"
+            class="mapa-asientos"
+            role="group"
+            aria-label="Selecciona asientos disponibles"
+          ></div>
+          <p id="resumen-asientos-reserva" class="resumen-asientos"></p>
+
+          <h3>Datos de prueba del titular</h3>
+          <p class="ayuda">
+            Escribe nombres y datos ficticios para la demostración.
+          </p>
+
+          <label for="nombre-titular">Nombre de prueba</label>
+          <input
+            id="nombre-titular"
+            name="nombreTitular"
+            type="text"
+            minlength="3"
+            maxlength="100"
+            autocomplete="off"
+            required
+          >
+
+          <label for="telefono-titular">Teléfono de prueba</label>
+          <input
+            id="telefono-titular"
+            name="telefono"
+            type="tel"
+            minlength="7"
+            maxlength="20"
+            autocomplete="off"
+            required
+          >
+
+          <label for="correo-titular">Correo de prueba (opcional)</label>
+          <input
+            id="correo-titular"
+            name="correo"
+            type="email"
+            maxlength="254"
+            autocomplete="off"
+          >
+
+          <label class="opcion-checkbox">
+            <input id="incluye-hospedaje" name="incluyeHospedaje" type="checkbox">
+            Agregar hospedaje demostrativo
+          </label>
+
+          <div id="opciones-hospedaje" class="oculto">
+            <label for="habitacion-id">Tipo de habitación</label>
+            <select id="habitacion-id" name="habitacionId"></select>
+            <div id="lista-huespedes"></div>
+          </div>
+
+          <div class="resumen-reserva" aria-live="polite">
+            <p>Asientos: <span id="costo-transporte-reserva"></span></p>
+            <p>Hospedaje: <span id="costo-hospedaje-reserva"></span></p>
+            <p class="total">
+              <strong>Total demostrativo:</strong>
+              <strong id="total-reserva"></strong>
+            </p>
+          </div>
+
+          <button
+            id="crear-reserva"
+            class="boton principal"
+            type="submit"
+          >
+            Crear reserva demostrativa
+          </button>
+        </form>
+
+        <div id="resultado-reserva" class="resultado oculto" role="status"></div>
+      </article>
+
+      <article id="seccion-pago" class="tarjeta oculto">
+        <h2>Reportar pago demostrativo</h2>
+        <p id="identificador-reserva" class="ayuda"></p>
+        <p class="demo-aviso">
+          Esta pantalla no procesa pagos ni verifica transferencias. No hay
+          cuentas bancarias reales: ingresa una referencia de prueba y adjunta
+          un archivo ficticio, como una fotografía de paisaje.
+        </p>
+
+        <form id="formulario-pago">
+          <p>
+            Monto para la demostración:
+            <strong id="monto-pago"></strong>
+          </p>
+
+          <label for="referencia-pago">Referencia ficticia</label>
+          <input
+            id="referencia-pago"
+            name="referencia"
+            type="text"
+            maxlength="100"
+            placeholder="DEMO-12345"
+            autocomplete="off"
+            required
+          >
+
+          <label for="fecha-transferencia">Fecha de prueba</label>
+          <input
+            id="fecha-transferencia"
+            name="fechaTransferencia"
+            type="date"
+            required
+          >
+
+          <label for="comprobante-pago">Archivo de prueba</label>
+          <input
+            id="comprobante-pago"
+            name="comprobante"
+            type="file"
+            accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+            required
+          >
+          <small>PDF, JPG o PNG, hasta 5 MB. No adjuntes recibos reales.</small>
+
+          <button
+            id="reportar-pago"
+            class="boton principal"
+            type="submit"
+          >
+            Enviar reporte de pago de prueba
+          </button>
+        </form>
+        <p id="resultado-pago" class="resultado oculto" role="status"></p>
+      </article>
+    </section>
+  </main>
+
+  <script src="/js/reserva.js"></script>
+</body>
+</html>

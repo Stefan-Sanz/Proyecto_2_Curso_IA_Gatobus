@@ -1,0 +1,21 @@
+{
+  "name": "asistente-viajes",
+  "version": "1.0.0",
+  "description": "Prototipo de plataforma para gestionar viajes grupales",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --env-file-if-exists=.env --watch server.js",
+    "create-agent": "node --env-file-if-exists=.env scripts/create-agent.js"
+  },
+  "dependencies": {
+    "@azure/ai-projects": "^2.7.1",
+    "@azure/identity": "^4.13.3",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
+  }
+}

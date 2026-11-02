@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente de viajes</title>
+
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div class="contenedor encabezado-contenido">
+      <img
+        class="logo-gatobus"
+        src="/images/Gatobus.jpg"
+        alt="Gatobus, logotipo del asistente de viajes"
+      >
+      <div class="encabezado-texto">
+        <h1>Asistente de viajes</h1>
+        <p>
+          Consulta la información del viaje con ayuda del asistente.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <p class="demo-aviso" role="status">
+      proyecto en desarrollo las reservas y pagos son demostrativos. No ingreses
+      información real ni realices transferencias.
+    </p>
+
+    <section id="estado-carga" class="estado">
+      Cargando información del viaje...
+    </section>
+
+    <section id="contenido-viaje" class="oculto">
+      <article class="tarjeta">
+        <h2 id="nombre-viaje"></h2>
+
+        <p id="descripcion-viaje"></p>
+
+        <div class="informacion-grid">
+          <div>
+            <strong>Origen</strong>
+            <span id="origen-viaje"></span>
+          </div>
+
+          <div>
+            <strong>Destino</strong>
+            <span id="destino-viaje"></span>
+          </div>
+
+          <div>
+            <strong>Salida</strong>
+            <span id="salida-viaje"></span>
+          </div>
+
+          <div>
+            <strong>Regreso</strong>
+            <span id="regreso-viaje"></span>
+          </div>
+
+          <div>
+            <strong>Precio del transporte</strong>
+            <span id="precio-transporte"></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tarjeta chat-card" aria-labelledby="titulo-chat">
+        <div class="chat-identidad">
+          <img
+            class="logo-asistente"
+            src="/images/Miaustino.jpg"
+            alt=""
+          >
+          <h2 id="titulo-chat">Asistente de viajes</h2>
+        </div>
+        <p>
+          Pregunta sobre el destino, horarios, costos, asientos disponibles
+          y hospedaje.
+        </p>
+
+        <div
+          id="chat-messages"
+          class="chat-messages"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+          aria-label="Conversación con el asistente"
+        >
+          <p class="chat-message asistente">
+            ¡Hola! Puedo ayudarte con la información actual del viaje.
+          </p>
+        </div>
+
+          <div class="chat-voz">
+            <button
+              id="chat-voice-input"
+              type="button"
+              class="boton secundario"
+              aria-pressed="false"
+            >
+              Hablar pregunta
+            </button>
+            <button
+              id="chat-voice-output"
+              type="button"
+              class="boton secundario"
+              aria-pressed="false"
+            >
+              Leer respuestas: desactivado
+            </button>
+          </div>
+          <p class="ayuda">
+            El dictado requiere un navegador compatible y permiso para usar
+            el micrófono.
+          </p>
+
+          <form id="chat-form" class="chat-form">
+          <label class="solo-lectores" for="chat-input">
+            Escribe tu pregunta
+          </label>
+          <textarea
+            id="chat-input"
+            name="message"
+            rows="2"
+            maxlength="2000"
+            required
+            placeholder="Por ejemplo: ¿cuántos asientos quedan disponibles?"
+          ></textarea>
+          <button
+            id="chat-send"
+            type="submit"
+            class="boton principal"
+          >
+            Enviar
+          </button>
+        </form>
+        <p id="chat-status" class="chat-status" role="status"></p>
+      </article>
+
+<article class="tarjeta">
+  <h2>Disponibilidad de asientos</h2>
+
+  <p>
+Selecciona los asientos disponibles que deseas reservar.
+  </p>
+
+  <figure class="imagen-asientos">
+    <img
+      src="/images/Asientos.jpg"
+      alt="Vista interior de los asientos de un autobús de pasajeros"
+    >
+    <figcaption>
+      Imagen de referencia del interior; la disponibilidad actual se muestra
+      en el plano.
+    </figcaption>
+  </figure>
+
+  <div class="leyenda">
+  <span>
+    <i class="color disponible"></i>
+    Disponible
+  </span>
+
+  <span>
+    <i class="color apartado"></i>
+    Apartado
+  </span>
+
+  <span>
+    <i class="color pagado"></i>
+    Pagado
+  </span>
+
+  <span>
+    <i class="color no-disponible"></i>
+    No disponible
+  </span>
+  <span>
+    <i class="color conductor"></i>
+    Conductor
+  </span>
+  <span>
+    <i class="color bano"></i>
+    Baño
+  </span>
+</div>
+
+  <div class="frente-autobus">Frente del autobús · conductor</div>
+  <div
+    id="mapa-asientos"
+    class="mapa-asientos"
+    role="group"
+    aria-label="Selecciona asientos disponibles del autobús"
+  ></div>
+  <div class="fondo-autobus">Parte trasera del autobús · baño</div>
+
+  <p id="resumen-disponibilidad-asientos" class="ayuda"></p>
+  <p id="resumen-seleccion-asientos" class="resumen-asientos">
+    Selecciona al menos un asiento para iniciar una reserva demostrativa.
+  </p>
+  <a
+    id="iniciar-reserva"
+    class="boton principal enlace-boton deshabilitado"
+    href="/reserva.html"
+    aria-disabled="true"
+  >
+    Continuar con la reserva demostrativa
+  </a>
+</article>
+
+      <article class="tarjeta tarjeta-hospedaje">
+        <h2>Hospedaje disponible</h2>
+
+        <p>
+          Hotel:
+          <strong id="nombre-hotel"></strong>
+        </p>
+
+        <p id="direccion-hotel"></p>
+
+        <div id="habitaciones"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="contenedor pie-pagina">
+    <a href="/admin-login.html">Acceso de demostración para administración</a>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
